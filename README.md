@@ -1,48 +1,55 @@
-Smart Irrigation System using Arduino
-Overview
-This project implements a Smart Irrigation System using Arduino, designed to optimize plant watering based on environmental data and user preferences. The system utilizes various sensors and actuators to monitor soil moisture levels and control water flow to ensure efficient irrigation.
+Smart Irrigation System Readme
+This README file provides an overview and explanation of the code for a Smart Irrigation System using an Arduino and various components. The system is designed to monitor soil temperature and automatically control a water pump to irrigate the soil when necessary.
 
-Table of Contents
-Features
-Hardware Requirements
-Software Requirements
-Setup and Installation
-Usage
-Contributing
-License
-Features
-Soil moisture sensing to determine when and how much to water.
-Real-time monitoring of environmental conditions (e.g., temperature, humidity).
-User-configurable settings for irrigation schedules and thresholds.
-Automatic water pump control for precise watering.
-Energy-efficient design for battery-powered operation.
-Hardware Requirements
-To build this Smart Irrigation System, you will need the following components:
+Components Required
+Arduino board (e.g., Arduino Uno)
+Liquid Crystal Display (LCD)
+Temperature sensor (connected to A1)
+Motor driver (connected to pins 10 and 11)
+Red and Green LEDs (connected to pins 12 and 9, respectively)
+Buzzer (connected to pin 8)
+Libraries Used
+The code relies on the "LiquidCrystal" library for interfacing with the LCD display. Ensure that this library is installed in your Arduino IDE.
 
-Arduino board (e.g., Arduino Uno, Arduino Nano)
-Soil moisture sensor
-Temperature and humidity sensor (e.g., DHT22)
-Relay module or MOSFET for controlling water pump
-Water pump and tubing
-Power source (battery or AC adapter)
-Jumper wires
-Breadboard or custom PCB for circuit assembly
-Software Requirements
-Arduino IDE (Integrated Development Environment) - Download Arduino IDE
-Arduino libraries for sensors and actuators (installable via Arduino Library Manager)
-Setup and Installation
-Clone or download the project repository to your local machine.
-Open the Arduino IDE and ensure you have the necessary libraries installed (refer to libraries.txt or the project documentation for a list of required libraries).
-Connect the hardware components according to the circuit diagram provided in the project documentation.
-Open the main Arduino sketch (.ino file) in the Arduino IDE.
-Configure the Arduino board type and port under the "Tools" menu.
-Upload the sketch to the Arduino board.
-Power up the system and monitor the serial console for debugging information.
+Code Overview
+The code for the Smart Irrigation System can be divided into two main functions: setup() and loop().
+
+setup()
+Initializes serial communication at a baud rate of 9600 for debugging purposes.
+Sets up the LCD display with the specified pin connections.
+Initializes pins for various components, including the LEDs, buzzer, motor driver, and temperature sensor.
+Clears the LCD display and displays initial information.
+loop()
+This is the main loop of the program, where the system continuously monitors the soil temperature and takes action accordingly.
+
+Reads the analog value from the temperature sensor (connected to pin A1).
+Converts the analog value to temperature (in degrees) and displays it on both the serial monitor and the LCD.
+Checks if the soil temperature is greater than 50 degrees Celsius:
+If the temperature is high, it indicates a need for irrigation.
+Activates the water pump (motor driver) to irrigate the soil.
+Turns on the red LED, indicating a warning.
+Activates a buzzer to generate a sound.
+Displays "ON" on the LCD.
+Outputs relevant messages to the serial monitor.
+If the soil temperature is within an acceptable range (<= 50 degrees Celsius):
+Deactivates the water pump.
+Turns off the red LED and buzzer.
+Turns on the green LED, indicating normal conditions.
+Displays "OFF" on the LCD.
+Outputs a message to the serial monitor indicating that the soil temperature is fine.
 Usage
-Ensure that the soil moisture sensor and environmental sensors are properly calibrated.
-Set your desired irrigation schedule and moisture threshold values in the Arduino code.
-Deploy the system in your garden or plant area.
-The system will automatically monitor soil moisture and environmental conditions and water the plants as needed.
-Contributing
-If you would like to contribute to this project, please follow these steps:
+Connect all the components as per the specified pin connections in the code.
+Upload the code to your Arduino board using the Arduino IDE.
+Open the serial monitor to view the real-time soil temperature readings and system status.
+Observe the LCD display for temperature and system status.
+The system will automatically activate the water pump and provide warnings when the soil temperature exceeds 50 degrees Celsius.
+Adjust the temperature threshold in the code as needed for your specific application.
+Note
+Make sure to power the water pump and any other external components as required.
+Ensure that the temperature sensor is calibrated and provides accurate readings.
+Customize the code further to add more features or integrate additional sensors for a more comprehensive irrigation system.
+Caution: Be cautious when working with electrical components and water. Ensure proper safety measures to avoid electrical hazards and water damage.
+
+
+
 
