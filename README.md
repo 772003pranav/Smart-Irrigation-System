@@ -46,8 +46,3 @@ The system will automatically monitor soil moisture and environmental conditions
 Contributing
 If you would like to contribute to this project, please follow these steps:
 
-Fork the repository.
-Create a new branch for your contributions.
-Make your changes and improvements.
-Test thoroughly.
-Submit a pull request with a clear description of your changes.
